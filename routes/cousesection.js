@@ -42,12 +42,12 @@ router.delete('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     let data = await Cousesection.find();
-    res.end(JSON.stringify({status:"success", data:data}))
+    res.end(JSON.stringify({ status: "success", data: data }))
 });
 
 router.get('/:id', async (req, res) => {
     let data = await Cousesection.findById(req.params.id);
-    res.end(JSON.stringify({status:"success", data:data}))
+    res.end(JSON.stringify({ status: "success", data: data }))
 });
 
 

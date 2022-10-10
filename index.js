@@ -12,12 +12,12 @@ app.use(express.json());
 mongoose.connect("mongodb://localhost:27017/edupro");
 var db = mongoose.connection;
 
-db.on("error",(err)=>{
+db.on("error", (err) => {
     console.log(err);
 });
 
 
-db.on("open",()=>{
+db.on("open", () => {
     console.log("connection success");
 })
 
@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/trainer/cousesection",require("./routes/cousesection"));
-
+app.use("/trainer/cousesection", require("./routes/cousesection"));
+app.use("/trainer/course", require("./routes/course"));
 
 app.listen(8081, () => {
     console.log("Server is running at http://localhost:8081");
