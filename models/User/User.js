@@ -17,6 +17,10 @@ var schema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    timestamp: {
+        type: String,
+        required: true
     }
 });
 
