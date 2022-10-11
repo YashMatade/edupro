@@ -50,6 +50,4 @@ router.get('/:id', async (req, res) => {
     res.end(JSON.stringify({ status: "success", data: data }))
 });
 
-
-
 module.exports = router;
