@@ -13,12 +13,13 @@ router.put("/", (req, res) => {
     course.price = body.price;
     course.status = body.status;
     course.timestamp = body.timestamp;
+    // console.log(body);
 
     course.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
         res.end(JSON.stringify({ status: "failed", data: error }));
-    })
+    });
 });
 
 router.post("/", async (req, res) => {
@@ -49,13 +50,12 @@ router.delete("/", async (req, res) => {
 });
 
 
-router.get("/", async (res, req) => {
-    var data = await Course.find();
+router.get("/", async (req, res) => {
+    let data = await Course.find();
     res.end(JSON.stringify({ status: "success", data: data }));
 });
 
-router.get("/", async (req, res) => {
-    // var body = req.body;
+router.get("/:id", async (req, res) => {
     let data = await Course.findById(req.params.id);
     res.end(JSON.stringify({ status: "success", data: data }));
 });
