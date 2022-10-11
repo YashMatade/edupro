@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var Coursevideo = require("../models/Coursevideo");
+var Coursevideo = require("../../models/Trainer/Coursevideo");
 
 router.put("/", (req, res) => {
     var body = req.body;
