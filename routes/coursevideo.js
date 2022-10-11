@@ -19,7 +19,7 @@ router.put("/", (req, res) => {
     });
 });
 
-router.post("/", async(req, res) => {
+router.post("/", async (req, res) => {
     var body = req.body;
     var coursevideo = await Coursevideo.findById(body.id);
 
@@ -37,20 +37,32 @@ router.post("/", async(req, res) => {
     });
 });
 
-router.delete("/", async(req,res)=>{
+router.delete("/", async (req, res) => {
     var body = req.body;
     await Coursevideo.findByIdAndDelete(body.id);
-    res.end(JSON.stringify({status:"deleted"}));
+    res.end(JSON.stringify({ status: "deleted" }));
 });
 
-router.get("/",async (req,res)=>{
+router.get("/", async (req, res) => {
     var data = await Coursevideo.find();
-    res.end(JSON.stringify({status:"success",data:data}));
+    res.end(JSON.stringify({ status: "success", data: data }));
 });
 
-router.get("/:id",async(req,res)=>{
+router.get("/:id", async (req, res) => {
     var data = await Coursevideo.findById(req.params.id);
-    res.end(JSON.stringify({status:"success",data:data}));
-})
+    res.end(JSON.stringify({ status: "success", data: data }));
+});
+
+
+router.post("/srno", async (req, res) => {
+    var body = req.body;
+    var coursevideo = await Coursevideo.findById(body.id);
+    coursevideo.srno = body.srno;
+    coursevideo.save().then((result) => {
+        res.end(JSON.stringify({ status: "success", data: result }));
+    }, (error) => {
+        res.end(JSON.stringify({ status: "failed", data: error }));
+    });
+});
 
 module.exports = router;
