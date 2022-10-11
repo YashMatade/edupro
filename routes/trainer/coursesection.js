@@ -14,7 +14,7 @@ router.put('/', (req, res) => {
         res.end(JSON.stringify({ status: "success", data: result }))
     }, (error) => {
         res.end(JSON.stringify({ status: "failed", data: error }))
-    })
+    });
     // res.send(JSON.stringify({status:"Success"}))
 });
 
