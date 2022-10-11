@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/trainer/coursesection", require("./routes/coursesection"));
 app.use("/trainer/course", require("./routes/course"));
+app.use("/trainer/coursevideo", require("./routes/coursevideo"));
 
 app.listen(8081, () => {
     console.log("Server is running at http://localhost:8081");
