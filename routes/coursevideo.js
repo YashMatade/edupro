@@ -22,7 +22,6 @@ router.put("/", (req, res) => {
 router.post("/", async (req, res) => {
     var body = req.body;
     var coursevideo = await Coursevideo.findById(body.id);
-
     coursevideo.courseid = body.courseid;
     coursevideo.sectionid = body.sectionid;
     coursevideo.name = body.name;
@@ -63,5 +62,15 @@ router.post("/srno", async (req, res) => {
         res.end(JSON.stringify({ status: "failed", data: error }));
     });
 });
+
+// router.get("/:id",async(req,res)=>{
+//     var coursevideo = await Coursevideo.findById(req.params.id);
+//     coursevideo.srno = body.srno;
+//     coursevideo.save().then((result) => {
+//         res.end(JSON.stringify({ status: "success", data: result }));
+//     }, (error) => {
+//         res.end(JSON.stringify({ status: "failed", data: error }));
+//     });
+// })
 
 module.exports = router;
