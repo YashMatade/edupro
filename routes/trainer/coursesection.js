@@ -50,4 +50,19 @@ router.get('/:id', async (req, res) => {
     res.end(JSON.stringify({ status: "success", data: data }))
 });
 
+
+router.patch('/:id', async (req, res) => {
+    let coursesection = await Coursesection.findById(req.params.id);
+    var body = req.body
+    coursesection.srno = body.srno;
+    console.log(body);
+    coursesection.save().then((result) => {
+        res.end(JSON.stringify({ status: "success", data: result }))
+    }, (error) => {
+        res.end(JSON.stringify({ status: "failed", data: error }))
+    })
+});
+
+
+
 module.exports = router;
