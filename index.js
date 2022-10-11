@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 app.use("/trainer/coursesection", require("./routes/trainer/coursesection"));
 app.use("/trainer/course", require("./routes/trainer/course"));
 app.use("/trainer/coursevideo", require("./routes/trainer/coursevideo"));
+// app.use("/user/course/registration", require("./routes/user/user"));
 app.use("/user/course", require("./routes/user/user"));
 
 
