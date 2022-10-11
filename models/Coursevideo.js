@@ -6,8 +6,8 @@ var schema = new Schema({
     name :({type:String,required:true}),
     description :({type:String,required:true}),
     srno :({type:Number,required:true}),
-    _vfrom :({type:String,required:true}),
-    _videocode :({type:Number,required:true}),
+    vfrom :({type:String,required:true}),
+    videocode :({type:Number,required:true}),
 });
 
 var Coursevideo = mongoose.model("coursevideos",schema);
