@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/trainer/cousesection", require("./routes/cousesection"));
+app.use("/trainer/coursesection", require("./routes/coursesection"));
 app.use("/trainer/course", require("./routes/course"));
 
 app.listen(8081, () => {

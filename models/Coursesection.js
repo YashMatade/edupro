@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 
 var schema = new Schema({
     courseid: {
-        type: Number,
+        type: String,
         required: true
     },
     name: {
