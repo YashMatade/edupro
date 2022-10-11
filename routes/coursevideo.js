@@ -52,7 +52,7 @@ router.get("/:id", async (req, res) => {
     res.end(JSON.stringify({ status: "success", data: data }));
 });
 
-router.post("/srno", async (req, res) => {
+router.post("/updatesrno", async (req, res) => {
     var body = req.body;
     var coursevideo = await Coursevideo.findById(body.id);
     coursevideo.srno = body.srno;
