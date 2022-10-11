@@ -28,8 +28,8 @@ router.post("/", async(req, res) => {
     coursevideo.name = body.name;
     coursevideo.description = body.description;
     coursevideo.srno = body.srno;
-    coursevideo._vfrom = body._vfrom;
-    coursevideo._videocode = body._videocode;
+    coursevideo.vfrom = body.vfrom;
+    coursevideo.videocode = body.videocode;
     coursevideo.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
