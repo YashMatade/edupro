@@ -1,16 +1,16 @@
 var express = require("express");
 var router = express.Router();
-var Cousesection = require("../models/Cousesection")
+var Coursesection = require("../models/Coursesection")
 
 router.put('/', (req, res) => {
     var body = req.body;
-    let cousesection = new Cousesection()
+    let coursesection = new Coursesection()
 
-    cousesection.courseid = body.courseid;
-    cousesection.name = body.name;
-    cousesection.srno = body.srno;
+    coursesection.courseid = body.courseid;
+    coursesection.name = body.name;
+    coursesection.srno = body.srno;
 
-    cousesection.save().then((result) => {
+    coursesection.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }))
     }, (error) => {
         res.end(JSON.stringify({ status: "failed", data: error }))
@@ -20,13 +20,13 @@ router.put('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     var body = req.body;
-    let cousesection = await Cousesection.findById(body.id)
+    let coursesection = await Coursesection.findById(body.id)
 
-    cousesection.courseid = body.courseid;
-    cousesection.name = body.name;
-    cousesection.srno = body.srno;
+    coursesection.courseid = body.courseid;
+    coursesection.name = body.name;
+    coursesection.srno = body.srno;
 
-    cousesection.save().then((result) => {
+    coursesection.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }))
     }, (error) => {
         res.end(JSON.stringify({ status: "failed", data: error }))
@@ -35,18 +35,18 @@ router.post('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
     var body = req.body;
-    await Cousesection.findByIdAndDelete(body.id);
+    await Coursesection.findByIdAndDelete(body.id);
 
     res.end(JSON.stringify({ status: "success" }))
 });
 
 router.get('/', async (req, res) => {
-    let data = await Cousesection.find();
+    let data = await Coursesection.find();
     res.end(JSON.stringify({ status: "success", data: data }))
 });
 
 router.get('/:id', async (req, res) => {
-    let data = await Cousesection.findById(req.params.id);
+    let data = await Coursesection.findById(req.params.id);
     res.end(JSON.stringify({ status: "success", data: data }))
 });
 

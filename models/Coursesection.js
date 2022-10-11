@@ -16,6 +16,6 @@ var schema = new Schema({
     }
 });
 
-var Cousesection = mongoose.model("cousesections", schema);
+var Coursesection = mongoose.model("coursesections", schema);
 
-module.exports = Cousesection;
+module.exports = Coursesection;
