@@ -13,8 +13,6 @@ router.put("/", (req, res) => {
     course.price = body.price;
     course.status = body.status;
     course.timestamp = new Date();
-    // console.log(body);
-
     course.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
@@ -25,7 +23,6 @@ router.put("/", (req, res) => {
 router.post("/", async (req, res) => {
     var body = req.body;
     let course = await Course.findById(body.id);
-
     course.trainerid = body.trainerid;
     course.title = body.title;
     course.description = body.description;
@@ -33,9 +30,7 @@ router.post("/", async (req, res) => {
     course.mrp = body.mrp;
     course.price = body.price;
     course.status = body.status;
-    // course.timestamp = new Date();
     course.timestamp = new Date();
-
     course.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
