@@ -33,6 +33,7 @@ router.post("/", async (req, res) => {
     course.mrp = body.mrp;
     course.price = body.price;
     course.status = body.status;
+    // course.timestamp = new Date();
     course.timestamp = new Date();
 
     course.save().then((result) => {
