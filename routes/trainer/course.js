@@ -12,7 +12,7 @@ router.put("/", (req, res) => {
     course.mrp = body.mrp;
     course.price = body.price;
     course.status = body.status;
-    course.timestamp = body.timestamp;
+    course.timestamp = new Date();
     // console.log(body);
 
     course.save().then((result) => {
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     course.mrp = body.mrp;
     course.price = body.price;
     course.status = body.status;
-    course.timestamp = body.timestamp;
+    course.timestamp = new Date();
 
     course.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
