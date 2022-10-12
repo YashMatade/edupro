@@ -26,7 +26,7 @@ router.post("/markpaid", (req, res) => {
     user.name = body.name;
     user.email = body.email;
     user.password = body.password;
-    user.timestamp = body.timestamp;
+    user.timestamp = new Date();
     user.save().then((result) => {
         res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
