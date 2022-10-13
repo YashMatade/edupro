@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require("../../models/user/User")
 
 router.put('/registration', (req, res) => {
+    try{
     var body = req.body;
     let user = new User();
     user.trainerid = body.trainerid;
@@ -15,6 +16,8 @@ router.put('/registration', (req, res) => {
     }, (error) => {
         res.end(JSON.stringify({ status: "failed", data: error }))
     });
+    }catch(ex){
+        res.end(JSON.stringify({status:"failed",data:ex}));
 });
 
 router.post("/markpaid", (req, res) => {
