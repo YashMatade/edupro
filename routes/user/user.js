@@ -18,6 +18,7 @@ router.put('/registration', (req, res) => {
     });
     }catch(ex){
         res.end(JSON.stringify({status:"failed",data:ex}));
+    }
 });
 
 router.post("/markpaid", (req, res) => {
