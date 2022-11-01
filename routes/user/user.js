@@ -12,9 +12,9 @@ router.put('/registration', (req, res) => {
     user.password = body.password;
     user.timestamp = new Date();
     user.save().then((result) => {
-        res.end(JSON.stringify({ status: "success", data: result }))
+        res.end(JSON.stringify({ status: "success", data: result }));
     }, (error) => {
-        res.end(JSON.stringify({ status: "failed", data: error }))
+        res.end(JSON.stringify({ status: "failed", data: error }));
     });
     }catch(ex){
         res.end(JSON.stringify({status:"failed",data:ex}));
